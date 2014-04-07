@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>A11y Test</title>
+  <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+  
+<a id="top" href="#page-heading">Skip-to-content</a>
+
+<h1 id="page-heading" tabindex="-1">Accessibility testing</h1>
+
+<h2>Section 1: Input Labels</h2>
+
+<h3>1.1 Inputs with traditional labels</h3>
+
+<div class="example">
+
+  <label for="name-11">Name</label>
+  <input id="name-11" type="text">
+  <br>
+  <label for="email-11">Email</label>
+  <input id="email-11" type="text">
+
+  <code>
+    &lt;label for="name"&gt;Name&lt;/label&gt;<br>
+    &lt;input id="name" type="text"&gt;<br>
+    <br>
+    &lt;label for="email"&gt;Email&lt;/label&gt;<br>
+    &lt;input id="email" type="text"&gt;<br>
+  </code>
+
+  <div>
+    <span class="bold">FF/NVDA: </span>
+    <span class="bold green">Pass</span>
+    <span> - "Name", edit, has-auto-complete, blank</span>
+  </div>
+  <div>
+    <span class="bold">IE/JAWS: </span>
+    <span class="bold green">Pass</span>
+    <span> - "Name", edit, type text</span>
+  </div>
+
+</div>
+
+<h3>1.2 Inputs with "title" attributes</h3>
+
+<div class="example">
+
+  <label>Name</label>
+  <input type="text" title="Name">
+  <br>
+  <label>Email</label>
+  <input type="text" title="Email">
+
+  <code>
+    &lt;label&gt;Name&lt;/label&gt;<br>
+    &lt;input type="text" title="Name"&gt;<br>
+    <br>
+    &lt;label&gt;Email&lt;/label&gt;<br>
+    &lt;input type="text" title="Email"&gt;<br>
+  </code>
+
+  <div>
+    <span class="bold">FF/NVDA: </span>
+    <span class="bold green">Pass</span>
+    <span> - "Name", edit, has-auto-complete, blank</span>
+  </div>
+  <div>
+    <span class="bold">IE/JAWS: </span>
+    <span class="bold green">Pass</span>
+    <span> - "Name", edit, type text</span>
+  </div>
+
+</div>
+
+<h3>1.3 Inputs with "aria-labelledby" labels</h3>
+
+<div class="example">
+
+  <label id="name-label-13">Name</label>
+  <input type="text" aria-labelledby="name-label-13">
+  <br>
+  <label id="email-label-13">Email</label>
+  <input type="text" aria-labelledby="email-label-13">
+
+  <code>
+    &lt;label id="nameLabel"&gt;Name&lt;/label&gt;<br>
+    &lt;input type="text" aria-labelledby="nameLabel"&gt;<br>
+    <br>
+    &lt;label id="emailLabel"&gt;Email&lt;/label&gt;<br>
+    &lt;input type="text" aria-labelledby="emailLabel"&gt;<br>
+  </code>
+
+  <div>
+    <span class="bold">FF/NVDA: </span>
+    <span class="bold green">Pass</span>
+    <span> - "Name", edit, has-auto-complete, blank</span>
+  </div>
+  <div>
+    <span class="bold">IE/JAWS: </span>
+    <span class="bold green">Pass</span>
+    <span> - "Name", edit, type text</span>
+  </div>
+
+</div>
+
+<h3>1.4 Inputs with traditional labels <span class="ital">and</span> "title" attributes</h3>
+
+<div class="example">
+
+  <label for="name-14">Name</label>
+  <input id="name-14" title="Name" type="text">
+  <br>
+  <label for="email-14">Email</label>
+  <input id="email-14" title="Email" type="text">
+
+  <code>
+    &lt;label for="name"&gt;Name&lt;/label&gt;<br>
+    &lt;input id="name" title="Name" type="text"&gt;<br>
+    <br>
+    &lt;label for="email"&gt;Email&lt;/label&gt;<br>
+    &lt;input id="email" title="Email" type="text"&gt;<br>
+  </code>
+
+  <div>
+    <span class="bold">FF/NVDA: </span>
+    <span class="bold red">Fail</span>
+    <span> - "Name", edit, has-auto-complete, "Name", blank" (input label is read twice)</span>
+  </div>
+  <div>
+    <span class="bold">IE/JAWS: </span>
+    <span class="bold green">Pass</span>
+    <span> - "Name", edit, type text</span>
+  </div>
+
+</div>
+
+<h3>1.5 Inputs with traditional labels <span class="ital">and</span> "aria-labelledby" labels</h3>
+
+<div class="example">
+
+  <label id="name-label-15" for="name-15">Name</label>
+  <input id="name-15" aria-labelledby="name-label-15" type="text">
+  <br>
+  <label id="email-label-15" for="email-15">Email</label>
+  <input id="email-15" aria-labelledby="email-label-15" type="text">
+
+  <code>
+    &lt;label id="name-label" for="name"&gt;Name&lt;/label&gt;<br>
+    &lt;input id="name" aria-labelledby="name-label" type="text"&gt;<br>
+    <br>
+    &lt;label id="email-label" for="email"&gt;Email&lt;/label&gt;<br>
+    &lt;input id="email" aria-labelledby="email-label" type="text"&gt;<br>
+  </code>
+
+  <div>
+    <span class="bold">FF/NVDA: </span>
+    <span class="bold green">Pass</span>
+    <span> - "Name", edit, has-auto-complete, blank</span>
+  </div>
+  <div>
+    <span class="bold">IE/JAWS: </span>
+    <span class="bold green">Pass</span>
+    <span> - "Name", edit, type text</span>
+  </div>
+
+</div>
+
+<h3>1.6 Inputs with "title" attributes <span class="ital">and</span> "aria-labelledby" labels</h3>
+
+<div class="example">
+
+  <label id="name-label-16">Name</label>
+  <input title="Name" aria-labelledby="name-label-16" type="text">
+  <br>
+  <label id="email-label-16">Email</label>
+  <input title="Email" aria-labelledby="email-label-16" type="text">
+
+  <code>
+    &lt;label id="name-label"&gt;Name&lt;/label&gt;<br>
+    &lt;input title="Name" aria-labelledby="name-label" type="text"&gt;<br>
+    <br>
+    &lt;label id="email-label"&gt;Email&lt;/label&gt;<br>
+    &lt;input title="Email" aria-labelledby="email-label" type="text"&gt;<br>
+  </code>
+
+  <div>
+    <span class="bold">FF/NVDA: </span>
+    <span class="bold red">Fail</span>
+    <span> - "Name", edit, has-auto-complete, "Name", blank (input label is read twice)</span>
+  </div>
+  <div>
+    <span class="bold">IE/JAWS: </span>
+    <span class="bold green">Pass</span>
+    <span> - "Name", edit, type text</span>
+  </div>
+
+</div>
+
+<h2>Section 2: Fieldsets</h2>
+
+<h3>2.1 Fieldset, inputs with traditional labels</h3>
+
+<div class="example">
+
+  <fieldset>
+    <legend>Enter your user information</legend>
+    <label for="name-21">Name</label>
+    <input id="name-21" type="text">
+    <br>
+    <label for="email-21">Email</label>
+    <input id="email-21" type="text">
+  </fieldset>
+
+  <code>
+    &lt;fieldset&gt;<br>
+      <br>
+      &nbsp;&nbsp;&lt;legend&gt;Enter your user information&lt;/legend&gt;<br>
+      <br>
+      &nbsp;&nbsp;&lt;label for="name"&gt;Name&lt;/label&gt;<br>
+      &nbsp;&nbsp;&lt;input id="name" type="text"&gt;<br>
+      <br>
+      &nbsp;&nbsp;&lt;label for="email"&gt;Email&lt;/label&gt;<br>
+      &nbsp;&nbsp;&lt;input id="email" type="text"&gt;<br>
+      <br>
+    &lt;/fieldset&gt;<br>
+  </code>
+
+  <div>
+    <span class="bold">FF/NVDA: </span>
+    <span class="bold green">Pass</span>
+    <span> - "Enter your user information" grouping, "Name", edit, has-auto-complete, blank</span>
+  </div>
+  <div>
+    <span class="bold">IE/JAWS: </span>
+    <span class="bold green">Pass</span>
+    <span> - "Enter your user information", "Name", edit, type text</span>
+  </div>
+
+</div>
+
+<h3>2.2 Fieldset, inputs with "title" attributes</h3>
+
+<div class="example">
+
+  <fieldset>
+    <legend>Enter your user information</legend>
+    <label>Name</label>
+    <input type="text" title="Name">
+    <br>
+    <label>Email</label>
+    <input type="text" title="Email">
+  </fieldset>
+
+  <code>
+    &lt;fieldset&gt;<br>
+    <br>
+    &nbsp;&nbsp;&lt;legend&gt;Enter your user information&lt;/legend&gt;<br>
+    <br>
+    &nbsp;&nbsp;&lt;label&gt;Name&lt;/label&gt;<br>
+    &nbsp;&nbsp;&lt;input type="text" title="Name"&gt;<br>
+    <br>
+    &nbsp;&nbsp;&lt;label&gt;Email&lt;/label&gt;<br>
+    &nbsp;&nbsp;&lt;input type="text" title="Name"&gt;<br>
+    <br>
+    &lt;/fieldset&gt;<br>
+  </code>
+
+  <div>
+    <span class="bold">FF/NVDA: </span>
+    <span class="bold green">Pass</span>
+    <span> - "Enter your user information" grouping, "Name", edit, has-auto-complete, blank</span>
+  </div>
+  <div>
+    <span class="bold">IE/JAWS: </span>
+    <span class="bold green">Pass</span>
+    <span> - "Enter your user information", "Name", edit, type text</span>
+  </div>
+
+</div>
+
+<h3>2.3 Fieldset, inputs with traditional labels <span class="ital">and</span> "title" attributes</h3>
+
+<div class="example">
+
+  <fieldset>
+    <legend>Enter your user information</legend>
+    <label for="name-23">Name</label>
+    <input id="name-23" type="text" title="Name">
+    <br>
+    <label for="email-23">Email</label>
+    <input id="email-23" type="text" title="Email">
+  </fieldset>
+
+  <code>
+    &lt;fieldset&gt;<br>
+    <br>
+    &nbsp;&nbsp;&lt;legend&gt;Enter your user information&lt;/legend&gt;<br>
+    <br>
+    &nbsp;&nbsp;&lt;label for="name"&gt;Name&lt;/label&gt;<br>
+    &nbsp;&nbsp;&lt;input id="name" type="text" title="Name"&gt;<br>
+    <br>
+    &nbsp;&nbsp;&lt;label for="email"&gt;Email&lt;/label&gt;<br>
+    &nbsp;&nbsp;&lt;input id="email" type="text" title="Email"&gt;<br>
+    <br>
+    &lt;/fieldset&gt;<br>
+  </code>
+
+  <div>
+    <span class="bold">FF/NVDA: </span>
+    <span class="bold red">Fail</span>
+    <span> - "Enter your user information" grouping, "Name", edit, has-auto-complete, "Name", blank (input label is read twice)</span>
+  </div>
+  <div>
+    <span class="bold">IE/JAWS: </span>
+    <span class="bold green">Pass</span>
+    <span> - "Enter your user information", "Name", edit, type text</span>
+  </div>
+
+</div>
+
+<h3>2.4 Div role="group" with an "aria-labelledby" legend element, inputs with traditional labels</h3>
+
+<div class="example">
+
+  <div id="pseudo-legend-24">Enter your user information</div>
+  <div role="group" aria-labelledby="pseudo-legend-24">
+    <label for="name-24">Name</label>
+    <input id="name-24" type="text">
+    <br>
+    <label for="email-24">Email</label>
+    <input id="email-24" type="text">
+  </div>
+
+  <code>
+    &lt;div id="pseudo-legend"&gt;Enter your user information&lt;/div&gt;<br>
+    <br>
+    &lt;div role="group" aria-labelledby="pseudo-legend"&gt;<br>
+    <br>
+    &nbsp;&nbsp;&lt;label for="name"&gt;Name&lt;/label&gt;<br>
+    &nbsp;&nbsp;&lt;input id="name" type="text"&gt;<br>
+    <br>
+    &nbsp;&nbsp;&lt;label for="email"&gt;Email&lt;/label&gt;<br>
+    &nbsp;&nbsp;&lt;input id="email" type="text"&gt;<br>
+    <br>
+    &lt;/div&gt;<br>
+  </code>
+
+  <div>
+    <span class="bold">FF/NVDA: </span>
+    <span class="bold green">Pass</span>
+    <span> - "Enter your user information" grouping, "Name", edit, has-auto-complete, blank</span>
+  </div>
+  <div>
+    <span class="bold">IE/JAWS: </span>
+    <span class="bold green">Pass</span>
+    <span> - "Enter your user information", "Name", edit, type text</span>
+  </div>
+
+</div>
+
+<h3>2.5 Fieldset with interspersed table markup, inputs with traditional labels</h3>
+
+<div class="example">
+
+  <fieldset>
+    <legend>Enter your user information</legend>
+    <table>
+      <tbody>
+        <tr>
+          <td><label for="name-25">Name</label></td>
+          <td><input id="name-25" type="text"></td>
+        </tr>
+        <tr>
+          <td><label for="email-25">Email</label></td>
+          <td><input id="email-25" type="text"></td>
+        </tr>
+      </tbody>
+    </table>
+  </fieldset>
+
+  <code>
+    &lt;fieldset&gt;<br>
+      <br>
+      &nbsp;&nbsp;&lt;legend&gt;Enter your user information&lt;/legend&gt;<br>
+      <br>
+      &nbsp;&nbsp;&lt;table&gt;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&lt;tbody&gt;<br>
+          <br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;tr&gt;<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;td&gt;&lt;label for="name-25"&gt;Name&lt;/label&gt;&lt;/td&gt;<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;td&gt;&lt;input id="name-25" type="text"&gt;&lt;/td&gt;<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/tr&gt;<br>
+          <br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;tr&gt;<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;td&gt;&lt;label for="email-25"&gt;Email&lt;/label&gt;&lt;/td&gt;<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;td&gt;&lt;input id="email-25" type="text"&gt;&lt;/td&gt;<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/tr&gt;<br>
+          <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&lt;/tbody&gt;<br>
+      &nbsp;&nbsp;&lt;/table&gt;<br>
+      <br>
+    &lt;/fieldset&gt;<br>
+  </code>
+
+  <div>
+    <span class="bold">FF/NVDA: </span>
+    <span class="bold green">Pass</span>
+    <span> - "Enter your user information" grouping, "Name", edit, has-auto-complete, blank</span>
+  </div>
+  <div>
+    <span class="bold">IE/JAWS: </span>
+    <span class="bold green">Pass</span>
+    <span> - "Enter your user information", "Name", edit, type text</span>
+  </div>
+
+</div>
+
+<h2>Section 3: Anchors with child images used as buttons</h2>
+
+<h3>3.1 Anchors with "title" attributes</h3>
+
+<div class="example">
+
+  <a href="#" title="Accept" role="button"><img src="images/accept.png"></a>
+  <a href="#" title="Decline" role="button"><img src="images/decline.png"></a>
+
+  <code>
+    &lt;a href="#" title="Accept" role="button"&gt;<br>
+    &nbsp;&nbsp;&lt;img src="images/accept.png"&gt;<br>
+    &lt;/a&gt;<br>
+    <br>
+    &lt;a href="#" title="Decline" role="button"&gt;<br>
+    &nbsp;&nbsp;&lt;img src="images/decline.png"&gt;<br>
+    &lt;/a&gt;<br>
+  </code>
+
+  <div>
+    <span class="bold">FF/NVDA: </span>
+    <span class="bold green">Pass</span>
+    <span> - "Accept button"</span>
+  </div>
+  <div>
+    <span class="bold">IE/JAWS: </span>
+    <span class="bold green">Pass</span>
+    <span> - "Accept"</span>
+  </div>
+
+</div>
+
+<h3>3.2 Anchors with "title" attributes, image marked presentational</h3>
+
+<div class="example">
+
+  <a href="#" title="Accept" role="button"><img src="images/accept.png" alt="" role="presentation"></a>
+  <a href="#" title="Decline" role="button"><img src="images/decline.png" alt="" role="presentation"></a>
+
+  <code>
+    &lt;a href="#" title="Accept" role="button"&gt;<br>
+    &nbsp;&nbsp;&lt;img src="images/accept.png" alt="" role="presentation"&gt;<br>
+    &lt;/a&gt;<br>
+    <br>
+    &lt;a href="#" title="Decline" role="button"&gt;<br>
+    &nbsp;&nbsp;&lt;img src="images/decline.png" alt="" role="presentation"&gt;<br>
+    &lt;/a&gt;<br>
+  </code>
+
+  <div>
+    <span class="bold">FF/NVDA: </span>
+    <span class="bold green">Pass</span>
+    <span> - "Accept button"</span>
+  </div>
+  <div>
+    <span class="bold">IE/JAWS: </span>
+    <span class="bold green">Pass</span>
+    <span> - "Accept" button</span>
+  </div>
+
+</div>
+
+<h3>3.3 Images with "alt" attributes</h3>
+
+<div class="example">
+
+  <a href="#" role="button"><img src="images/accept.png" alt="Accept"></a>
+  <a href="#" role="button"><img src="images/decline.png" alt="Decline"></a>
+
+  <code>
+    &lt;a href="#" role="button"&gt;<br>
+    &nbsp;&nbsp;&lt;img src="images/accept.png" alt="Accept"&gt;<br>
+    &lt;/a&gt;<br>
+    <br>
+    &lt;a href="#" role="button"&gt;<br>
+    &nbsp;&nbsp;&lt;img src="images/decline.png" alt="Decline"&gt;<br>
+    &lt;/a&gt;<br>
+  </code>
+
+  <div>
+    <span class="bold">FF/NVDA: </span>
+    <span class="bold green">Pass</span>
+    <span> - "Accept graphic button"</span>
+  </div>
+  <div>
+    <span class="bold">IE/JAWS: </span>
+    <span class="bold green">Pass</span>
+    <span> - "Accept" button</span>
+  </div>
+
+</div>
+
+<h3>3.4 Fieldset, anchors with "title" attributes</h3>
+
+<div class="example">
+
+  <fieldset>
+    <legend>Do you accept our offer?</legend>
+    <a href="#" title="Accept" role="button"><img src="images/accept.png"></a>
+    <a href="#" title="Decline" role="button"><img src="images/decline.png"></a>
+  </fieldset>
+
+  <code>
+  &lt;fieldset&gt;<br>
+    <br>
+      &lt;legend&gt;Do you accept our offer?&lt;/legend&gt;<br>
+      <br>
+      &nbsp;&nbsp;&lt;a href="#" title="Accept" role="button"&gt;&lt;img src="images/accept.png"&gt;&lt;/a&gt;<br>
+      &nbsp;&nbsp;&lt;a href="#" title="Decline" role="button"&gt;&lt;img src="images/decline.png"&gt;&lt;/a&gt;<br>
+      <br>
+    &lt;/fieldset&gt;<br>
+  </code>
+
+  <div>
+    <span class="bold">FF/NVDA: </span>
+    <span class="bold red">Fail</span>
+    <span> - "Accept button" (does not read the legend-like information)</span>
+  </div>
+  <div>
+    <span class="bold">IE/JAWS: </span>
+    <span class="bold red">Fail</span>
+    <span> - "Do you accept our offer?" (does not read the button label)</span>
+  </div>
+
+</div>
+
+<h3>3.5 Div role="group" with "aria-labelledby" legend element, anchors with "title" attributes</h3>
+
+<div class="example">
+
+  <div id="pseudo-legend-35">Do you accept our offer?</div>
+  <div role="group" aria-labelledby="pseudo-legend-35">
+    <a href="#" title="Accept" role="button"><img src="images/accept.png"></a>
+    <a href="#" title="Decline" role="button"><img src="images/decline.png"></a>
+  </div>
+
+  <code>
+  &lt;div id="pseudo-legend"&gt;Do you accept our offer?&lt;/div&gt;<br>
+  <br>
+    &lt;div role="group" aria-labelledby="pseudo-legend"&gt;<br>
+      <br>
+      &nbsp;&nbsp;&lt;a href="#" title="Accept" role="button"&gt;&lt;img src="images/accept.png"&gt;&lt;/a&gt;<br>
+      &nbsp;&nbsp;&lt;a href="#" title="Decline" role="button"&gt;&lt;img src="images/decline.png"&gt;&lt;/a&gt;<br>
+      <br>
+    &lt;/div&gt;
+  </code>
+
+  <div>
+    <span class="bold">FF/NVDA: </span>
+    <span class="bold red">Fail</span>
+    <span> - "Accept button" (does not read the legend-like information)</span>
+  </div>
+  <div>
+    <span class="bold">IE/JAWS: </span>
+    <span class="bold red">Fail</span>
+    <span> - [attempts to find subsequent text], "Do you accept our offer?"</span>
+  </div>
+
+</div>
+
+<a id="bot" href="#top">Return-to-top</a>
+
+</body>
+</html>

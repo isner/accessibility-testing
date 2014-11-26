@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Accessibility Testing</title>
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/simple-grid.css">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/github.min.css">
+
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+</head>
+<body>
+
+  <div class="grid grid-pad">
+    <div class="col-1-1">
+      <a id="top" href="#heading-1">Skip-to-content</a>
+      <h1 id="heading-1" tabindex="-1">Accessibility testing</h1>
+      <!--TARGET-->
+      <a id="bot" href="#top">Return-to-top</a>
+    </div>
+  </div>
+
+<script>hljs.initHighlightingOnLoad();</script>
+</body>
+</html>

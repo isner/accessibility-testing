@@ -1,0 +1,10 @@
+{
+  "name": "accessibility-testing",
+  "description": "Playground for testing accessibility design patterns",
+  "version": "0.0.2",
+  "author": "Matthew Isner <isnerms@gmail.com>",
+  "dependencies": {
+    "debug": "^2.1.0",
+    "escape-html": "^1.0.1"
+  }
+}

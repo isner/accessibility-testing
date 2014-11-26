@@ -1,0 +1,15 @@
+
+div.grid {
+  margin-bottom: 50px;
+}
+
+div.example {
+  border: 1px solid #888;
+  border-radius: 3px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+pre {
+  padding: 0;
+}

@@ -6,13 +6,13 @@ Requires [nodejs](http://nodejs.org) to rebuild the testing view with your own e
 
 ## Instructions
 
-### To view existing examples
+### Option 1: View existing examples
 
 Open `index.html` in your browser.
 
-### To add your own examples, and rebuild the testing page
+### Option 2: Build the testing page with your own examples
 
-1. Get the project
+#### 1. Get the project
 
 ```bash
 # Clone this repository
@@ -21,18 +21,22 @@ git clone https://isner/accessibility-testing.git
 $ npm i
 ```
 
-2. Create your own examples
+#### 2. Create your own examples
 
-For each example you wish to add, create a new `.html` file which contains the example markup you wish to test. The file need not contain any wrapper of heading - just the code you wish to test.
+For each example you wish to add, create a new `.html` file which contains the example markup you wish to test. The file need not contain any wrapper or heading - just the code you wish to test.
 
-The filename will be converted to a heading for the example, so put some thought into your filename. For example, `datepicker-widget.html` will receive a heading of "Datepicker widget" on the testing page.
+The filename will be converted to a heading for the example, so put some thought into your filename. For example, `datepicker-widget.html` will be displayed under the heading "Datepicker widget" on the testing page.
 
 Add each example file to the `/examples` directory of the project.
 
-3. Build the testing page
+#### 3. Build the testing page
 
 ```bash
 node build
 ```
 
 Open `index.html` in your browser
+
+## TODO
+
+- During the build, regenerate element ids (as well as other elements' attributes with a value matching that id) to avoid the possibility of duplicate ids occurring after numerous examples are added by different users.

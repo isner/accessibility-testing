@@ -37,6 +37,7 @@ node build
 
 Open `index.html` in your browser
 
-## TODO
+## TODOs
 
+- Allow nested directories within `/examples`, and refactor the build to display the contents of these directories as categories of examples.
 - During the build, regenerate element ids (as well as other elements' attributes with a value matching that id) to avoid the possibility of duplicate ids occurring after numerous examples are added by different users.
